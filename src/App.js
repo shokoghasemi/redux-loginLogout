@@ -4,7 +4,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Panel from "./component/Panel.js";
 import About from "./component/About.js";
 import { LogoutPage } from "./component/Logout";
-import LoginPage from "./component/Login";
+import { LoginPage } from "./component/Login";
+
 
 class App extends React.Component {
   render() {
