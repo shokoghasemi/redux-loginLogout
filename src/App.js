@@ -5,9 +5,12 @@ import Panel from "./component/Panel.js";
 import About from "./component/About.js";
 import { LogoutPage } from "./component/Logout";
 import { LoginPage } from "./component/Login";
-
+import { connect } from "react-redux";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <React.Fragment>
@@ -20,13 +23,14 @@ class App extends React.Component {
               <li>
                 <Link to="/about">About</Link>
               </li>
-
               <li>
                 <Link to="/panel">Panel</Link>
               </li>
-              <li>
-                <Link to="/logout">logout</Link>
-              </li>
+              {this.props.isLogin ? (
+                <li>
+                  <Link to="/logout">logout</Link>
+                </li>
+              ) : null}
             </ul>
           </nav>
           <Switch>
@@ -48,4 +52,6 @@ class App extends React.Component {
     );
   }
 }
-export default App;
+
+const mapStateToProps = state => state;
+export default connect(mapStateToProps, null)(App);
