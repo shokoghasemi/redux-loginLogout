@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Login } from "../redux/actions";
 
- class LoginPage extends React.Component {
+class LoginPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,6 +18,7 @@ import { Login } from "../redux/actions";
   };
   render() {
     const { name, password } = this.state;
+    console.log(this.state);
     return (
       <form onSubmit={this.onSubmit}>
         <p>please, Login</p>
@@ -35,7 +36,11 @@ import { Login } from "../redux/actions";
         ></input>
         <button
           disabled={this.props.isLogin}
-          onClick={() => this.props.login()}
+          onClick={
+            this.state.name === "admin" && this.state.password === "admin"
+              ? () => this.props.login()
+              : null
+          }
         >
           Login
         </button>
@@ -43,7 +48,7 @@ import { Login } from "../redux/actions";
     );
   }
 }
-const mapStateToProps = state => state;
+const mapStateToProps = state => state.login;
 const mapDispatchToProps = dispatch => ({
   login: () => dispatch(Login())
 });
