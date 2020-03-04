@@ -18,7 +18,9 @@ class LoginPage extends React.Component {
   };
   render() {
     const { name, password } = this.state;
+    console.log(this.props)
     console.log(this.state);
+    
     return (
       <form onSubmit={this.onSubmit}>
         <p>please, Login</p>

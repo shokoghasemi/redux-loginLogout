@@ -1,17 +1,18 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { connect } from "react-redux";
 import Panel from "./component/Panel.js";
 import About from "./component/About.js";
 import LogoutPage from "./component/Logout";
 import LoginPage from "./component/Login";
-import { connect } from "react-redux";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
   render() {
+    console.log("ll",this.props.isLogin);
     return (
       <React.Fragment>
         <Router>
@@ -26,10 +27,10 @@ class App extends React.Component {
               <li>
                 <Link to="/panel">Panel</Link>
               </li>
-              {this.props.isLogin? (
-              <li>
-                <Link to="/logout">logout</Link>
-              </li>
+              {this.props.isLogin ? (
+                <li>
+                  <Link to="/logout">logout</Link>
+                </li>
               ) : null}
             </ul>
           </nav>
@@ -52,5 +53,5 @@ class App extends React.Component {
     );
   }
 }
-const mapStateToProps = state => state.isLogin;
+const mapStateToProps = state => state.login;
 export default connect(mapStateToProps, null)(App);
