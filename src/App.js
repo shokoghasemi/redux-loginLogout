@@ -12,7 +12,7 @@ class App extends React.Component {
   //   super(props);
   // }
   render() {
-    console.log("ll",this.props.isLogin);
+    console.log("ll", this.props.isLogin);
     return (
       <React.Fragment>
         <Router>
@@ -24,13 +24,16 @@ class App extends React.Component {
               <li>
                 <Link to="/about">About</Link>
               </li>
-              <li>
-                <Link to="/panel">Panel</Link>
-              </li>
+
               {this.props.isLogin ? (
-                <li>
-                  <Link to="/logout">logout</Link>
-                </li>
+                <>
+                  <li>
+                    <Link to="/panel">Panel</Link>
+                  </li>
+                  <li>
+                    <Link to="/logout">logout</Link>
+                  </li>
+                </>
               ) : null}
             </ul>
           </nav>
@@ -45,7 +48,7 @@ class App extends React.Component {
               <About />
             </Route>
             <Route path="/">
-              <LoginPage />
+              {!this.props.isLogin ? <LoginPage /> : "you logined"}
             </Route>
           </Switch>
         </Router>
