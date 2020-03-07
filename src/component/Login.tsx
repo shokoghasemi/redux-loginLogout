@@ -2,12 +2,12 @@ import * as React from "react";
 import { connect } from 'react-redux';
 import { Login } from "../redux/actions";
 
-interface Props {  };
+interface Props { };
 interface State { name: string; password: string };
-class LoginPage extends React.Component<Props,State> {
+class LoginPage extends React.Component<Props, State> {
     constructor(props: any) {
         super(props);
-       
+
     }
     state: State = {
         name: "",
