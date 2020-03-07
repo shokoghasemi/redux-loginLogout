@@ -8,9 +8,9 @@ import LogoutPage from "./component/Logout";
 import LoginPage from "./component/Login";
 
 class App extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+  }
   render() {
     console.log("ll", this.props.isLogin);
     return (
@@ -39,7 +39,7 @@ class App extends React.Component {
           </nav>
           <Switch>
             <Route path="/logout">
-              <LogoutPage />
+              {this.props.isLogin ? <LogoutPage /> : "please login"}
             </Route>
             <Route path="/panel">
               <Panel />
@@ -48,7 +48,7 @@ class App extends React.Component {
               <About />
             </Route>
             <Route path="/">
-              {!this.props.isLogin ? <LoginPage /> : "you logined"}
+              {!this.props.isLogin ? <LoginPage /> : this.props.name}
             </Route>
           </Switch>
         </Router>

@@ -2,15 +2,20 @@ import React from "react";
 import { connect } from "react-redux";
 import { Logout } from "../redux/actions";
 
-function LogoutPage(props) {
+class  LogoutPage extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+  console.log('logoutprops',this.props.name)
   return (
     <>
-      <p>hello, {props.name}</p>
-      <button onClick={() => props.logout()}>Logoutt</button>
+      <p>hello, {this.props.name}</p>
+      <button onClick={() => this.props.logout()}>Logoutt</button>
     </>
   );
 }
-
+}
 const mapStateToProps = state => state;
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(Logout())

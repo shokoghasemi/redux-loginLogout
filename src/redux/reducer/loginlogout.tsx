@@ -1,7 +1,8 @@
 import { Log_in, Log_out } from "../actions";
 
-const initState = { isLogin: false, username: "", password: "" };
-export default function login(state = initState, action) {
+// const initState = { isLogin: false, username: "", password: "" };
+const initState = { isLogin: false};
+export default function login(state = initState, action:any) {
   switch (action.type) {
     case Log_in:
       return {
