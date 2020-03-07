@@ -3,7 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Panel from "./component/Panel.js";
-import About from "./component/About.js";
+import About from "./component/About";
 import LogoutPage from "./component/Logout";
 import LoginPage from "./component/Login";
 

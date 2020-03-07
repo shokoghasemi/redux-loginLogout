@@ -9,7 +9,7 @@ export default function login(state = initState, action:any) {
         ...state,
         isLogin: action.value
       };
-
+ 
     case Log_out:
       return {
         ...state,
