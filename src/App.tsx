@@ -6,11 +6,12 @@ import Panel from "./component/Panel";
 import About from "./component/About";
 import LogoutPage from "./component/Logout";
 import LoginPage from "./component/Login";
+import { isLogin } from "./redux/types";
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+class App extends React.Component<isLogin> {
+  // constructor(props:isLogin) {
+  //   super(props);
+  // }
   render() {
     console.log("ll", this.props.isLogin);
     return (
@@ -48,7 +49,7 @@ class App extends React.Component {
               <About />
             </Route>
             <Route path="/">
-              {!this.props.isLogin ? <LoginPage /> : this.props.name}
+              {!this.props.isLogin ? <LoginPage /> : "name"}
             </Route>
           </Switch>
         </Router>
@@ -56,5 +57,5 @@ class App extends React.Component {
     );
   }
 }
-const mapStateToProps = state => state.login;
+const mapStateToProps = (state: isLogin) => ({ isLogin: state.isLogin });
 export default connect(mapStateToProps, null)(App);

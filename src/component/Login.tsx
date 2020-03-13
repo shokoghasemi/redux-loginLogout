@@ -1,11 +1,11 @@
 import * as React from "react";
 import { connect } from 'react-redux';
 import { Login } from "../redux/actions";
+import { isLogin } from "../redux/types";
 
-interface Props { };
 interface State { name: string; password: string };
-class LoginPage extends React.Component<Props, State> {
-    constructor(props: any) {
+class LoginPage extends React.Component<isLogin, State> {
+    constructor(props:isLogin) {
         super(props);
 
     }
@@ -16,7 +16,7 @@ class LoginPage extends React.Component<Props, State> {
     onSubmit = (e: any) => {
         e.preventDefault();
     };
-    onChange = (e: any) => {
+    onChange = (e: string) => {
         this.setState({ [e.target.name]: e.target.value });
     };
     render() {
@@ -55,7 +55,7 @@ class LoginPage extends React.Component<Props, State> {
 }
 
 
-const mapStateToProps = state => state.login;
+const mapStateToProps = (state:isLogin) => ({isLogin:state.isLogin});
 const mapDispatchToProps = dispatch => ({
     login: () => dispatch(Login())
 });

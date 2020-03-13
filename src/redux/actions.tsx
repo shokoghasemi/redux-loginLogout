@@ -4,13 +4,13 @@ export const Log_out = "Log_out";
 export const Login = () => {
     return {
         type: Log_in,
-        value: true
+        payload: true
     }
 }
 
 export const Logout = () => {
     return {
         type: Log_out,
-        value: false
+        payload: false
     }
 }
